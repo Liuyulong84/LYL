@@ -3,6 +3,7 @@ package com.first;
 import java.util.Stack;
 
 public class JavaCode {
+
     public static class MyStack1 {
         private Stack<Integer> stackData;
         private Stack<Integer> stackMin;
