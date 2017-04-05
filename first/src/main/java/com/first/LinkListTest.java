@@ -109,6 +109,7 @@ public class LinkListTest {
             head1.next.next.next = new Node(4);
             head1.next.next.next.next = new Node(5);
             head1.next.next.next.next.next = new Node(6);
+
             printLinkedList(head1);
             head1 = removeLastKthNode(head1, 3);
             // head1 = removeLastKthNode(head1, 6);

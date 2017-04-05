@@ -1,1 +1,1 @@
-include ':app', ':first'
+include ':app', ':first', ':switchstatement', ':switchstatement'
