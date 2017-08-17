@@ -2,6 +2,13 @@ package com.example;
 
 /**
  * Created by $lyl on 2017/5/31.
+ *
+ * http://shmilyaw-hotmail-com.iteye.com/blog/1775868
+ *
+ * 建堆的时候 需要从下往上建堆，原因很简单。根基要稳当嘛， 要不从上往下的的时候，调节完的时候，发现下面的 又比 爷爷结点调过的还大 没办法搞了
+ *
+ * 因为建堆的时候已经保证了 下面的 子堆已经是 大根堆了，所以 从左后一个 换位置的时候，再次调整 是从上往下调，因为这时候
+ * 第一个跟最后一个换位置 之后 调整的话，换上去的肯定是小点。  接着调整的话， 堆尖儿上的三个数，参与调整的话， 一撇子下来，另一撇子的子堆不动 但是还是保证了是 大顶堆
  */
 
 public class HeapSort2 {
@@ -68,7 +75,7 @@ public class HeapSort2 {
      * @return
      */
     private static int getParentIndex(int current){
-        return (current - 1) >> 1;
+        return (current - 1) >> 1;//current/2
     }
 
     /**
