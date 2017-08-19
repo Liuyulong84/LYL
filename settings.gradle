@@ -1,1 +1,1 @@
-include ':app', ':first', ':switchstatement', ':switchstatement', ':gatheroperation', ':sort'
+include ':app', ':first', ':switchstatement', ':switchstatement', ':gatheroperation', ':sort', ':annonation'
