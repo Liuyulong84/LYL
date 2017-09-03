@@ -1,4 +1,4 @@
-package stack;
+package com.suanfa.stack;
 
 import java.util.Stack;
 
