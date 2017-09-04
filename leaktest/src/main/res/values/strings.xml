@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">leaktest</string>
+    <string name="title_activity_third">ThirdActivity</string>
+</resources>
