@@ -15,6 +15,12 @@ import java.util.List;
 //        }
 
 public class GetAllSet {
+
+    public static void main(String[] args) {
+        int [] arr = {1,2,3};
+        getAllSet(arr);
+    }
+
     private static void getAllSet(int[] a) {
         List<List<Integer>> result = new ArrayList<>();
         int n = a.length;
