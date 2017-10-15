@@ -2,6 +2,7 @@ package stragry;
 
 public class Context {
 
+    //策略模式
     private AbstractStrategy strategy;
 
     public void setStrategy(AbstractStrategy strategy) {

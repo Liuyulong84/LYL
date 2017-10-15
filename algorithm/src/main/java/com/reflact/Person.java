@@ -1,4 +1,4 @@
-package 反射;
+package com.reflact;
 
 public class Person {
 	private int age;

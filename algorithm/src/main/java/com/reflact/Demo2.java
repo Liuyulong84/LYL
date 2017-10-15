@@ -1,4 +1,6 @@
-package 反射;
+package com.reflact;
+
+import com.reflact.Person;
 
 /**
  * Demo2: 验证所有的类都是Class类的实例对象

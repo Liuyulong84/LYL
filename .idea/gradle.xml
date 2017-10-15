@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/leaktest" />
             <option value="$PROJECT_DIR$/sort" />
             <option value="$PROJECT_DIR$/switchstatement" />
+            <option value="$PROJECT_DIR$/threadcoding" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

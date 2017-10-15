@@ -1,4 +1,6 @@
-package 反射;
+package com.reflact;
+
+import com.reflact.Person;
 
 /**
  * Demo3: 通过Java反射机制，用Class 创建类对象[这也就是反射存在的意义所在]

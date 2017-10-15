@@ -11,5 +11,6 @@ class Decorator implements Component
        public void operation()
        {
               component.operation();  //调用原有业务方法
+              System.out.println("Father");
        }
 }

@@ -1,8 +1,10 @@
-package binaryTree;
+package com.suanfa.binaryTree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class BinaryTreeUtil {
 	
@@ -14,7 +16,11 @@ public class BinaryTreeUtil {
         public TreeNode(int val) {  
             this.val = val;  
         }  
-    } 
+    }
+
+    //分层打印 二叉树
+
+
 	
 	//1.分层遍历二叉树迭代 
 	public static void levelTraversal(TreeNode root) {  
@@ -34,7 +40,33 @@ public class BinaryTreeUtil {
                 queue.add(cur.right);  
             }  
         }  
-    }  
+    }
+
+    public ArrayList<Integer> printFromTopToBottom(TreeNode root){
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        Queue<TreeNode> queue = new ArrayBlockingQueue<TreeNode>(100);
+        TreeNode last = root;
+        TreeNode nLast = root;
+        queue.add(root);
+        while (! queue.isEmpty()) {
+            TreeNode out = queue.poll();
+            System.out.print(out.val + " ");
+            list.add(out.val);
+            if(out.left !=null){
+                queue.add(out.left);
+                nLast = out.left;
+            }
+            if(out.right !=null){
+                queue.add(out.right);
+                nLast = out.right;
+            }
+            if(out == last){
+                last = nLast;
+                System.out.println("");
+            }
+        }
+        return  list;
+    }
 	
 	//分层遍历的应用1：求二叉树中的节点个数
 	public static int getNodeNum(TreeNode root) {  
