@@ -1,4 +1,4 @@
-package 反射;
+import com.reflact.*;
 
 public class SuperPerson extends Person implements Smoke.Smoking{
 	private boolean isMan;

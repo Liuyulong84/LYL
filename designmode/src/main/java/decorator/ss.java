@@ -13,5 +13,16 @@ public class ss {
             }
         });
         decorator.operation();
+
+        System.out.println("----------------");
+
+        ConcreteDecorator concreteDecorator = new ConcreteDecorator(new Component() {
+            @Override
+            public void operation() {
+                System.out.println("Component");
+            }
+        });
+
+        concreteDecorator.operation();
     }
 }

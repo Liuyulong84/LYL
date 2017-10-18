@@ -17,8 +17,6 @@ public class ThreeSum {
         System.out.println(x & 3);
         int y = 8 ;
         System.out.println( y & 3);
-
-        System.out.println("Java".hashCode());
     }
 
 

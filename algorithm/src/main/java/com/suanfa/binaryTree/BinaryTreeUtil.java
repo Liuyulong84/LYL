@@ -2,6 +2,7 @@ package com.suanfa.binaryTree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -16,6 +17,16 @@ public class BinaryTreeUtil {
         public TreeNode(int val) {  
             this.val = val;  
         }  
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.left.right.left = new TreeNode(6);
+
     }
 
     //分层打印 二叉树
@@ -263,8 +274,37 @@ public class BinaryTreeUtil {
         while( !output.isEmpty() ){ // 遍历输出第二个stack，即为后序遍历  
             System.out.print(output.pop().val + " ");  
         }  
-    }  
+    }
 
-	
-	
+
+    //从根节点到目标节点 的 path
+
+    public List<Integer> getPath(TreeNode root, int val) {
+        preorder(root, val);
+        return result;
+    }
+
+    List<Integer> result;
+    LinkedList<Integer> path = new LinkedList<>();
+
+    void preorder(TreeNode root, int key) {
+        if (root == null || result != null) {
+            return;
+        }
+
+        if (root.val == key) {
+            path.add(root.val);
+            result = path;
+            return;
+        } else {
+            path.add(root.val);
+            preorder(root.left, key);
+            preorder(root.right, key);
+            path.removeLast();
+        }
+    }
+
+
+
+
 }
