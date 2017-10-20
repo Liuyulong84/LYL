@@ -68,7 +68,7 @@ public class GraphicsView extends View {
             }
         } else {
             for (int i = 0; i < mViewWidth; i++) {
-                mPath.lineTo(i, (mViewHeight - (float) mTypeEvaluator.evaluate(i * 1.0F / mViewHeight, 0F, mViewHeight)) * 0.6F);
+                //mPath.lineTo(i, (mViewHeight - (float) mTypeEvaluator.evaluate(i * 1.0F / mViewHeight, 0F, mViewHeight)) * 0.6F);
             }
         }
         canvas.drawPath(mPath, mPaint);
