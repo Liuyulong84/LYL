@@ -1,8 +1,10 @@
 package com.lyl;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.lyl.administrator.lyl.R;
@@ -73,6 +75,17 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
 
+        initCustomViewLearning();
+
+    }
+
+    private void initCustomViewLearning() {
+        findViewById(R.id.custom_view_learning).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Main2Activity.class));
+            }
+        });
     }
 
 

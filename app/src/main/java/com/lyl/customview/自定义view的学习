@@ -1,0 +1,140 @@
+#首先要说的就是
+面试头条的时候，面试作业盒子的时候，都有问到Android 的自定义view
+
+所以这块还是要经常的练习一下
+
+如何自定义控件
+
+1.自定义属性的生命与获取
+2.测量onMeasure
+3.布局onLayout(ViewGroup)
+4.绘制onDraw
+5.onTouchEvent
+6.onInterceptTouchEvent(ViewGroup)
+
+##自定义属性的声明，与获取
+
+1.分析需要的自定义属性
+2.在 res/values/attrs.xml 定义声明
+3.在布局文件中进行使用
+4.在View的构造方法中进行获取
+
+TypeArray a = context.obtainStyleAttributes(attrs,R.styleable.ChangeColorWithText);
+int n = a.getIndexCount();
+
+for( int i =0 ; i<n ;i++){
+     int arr = a.getIndex(i);
+     switch (arr) {
+
+      }
+
+   }
+
+ a.recycle();
+
+# 测量onMeasure
+1.一个是测量的模式 ：EXACTLY , AT_MOST , UNSPECIFIED
+
+EXACTLY 明确的值
+
+AT_MOST 至多不能超过多少UNSPECIFIED  这就是 wrapContent
+
+UNSPECIFIED 要多大就多大，没有限制，只要是 scrollView，的孩子的view 想要多大
+
+
+一个 是测量的值
+
+2 .封装的方法
+
+int mode = MeasureSpec.getMode( heightMeasureSpec);
+int size = MeasureSpec.getSize( heightMeasureSpec);
+
+然后根据不同的 测量模式 得到 一个result
+
+3. setMeasuredDimension 把刚才的结果给传进去
+
+4. requestLayout(); 重新的去测量，去布局，但是不绘制，绘制是 invalidate();
+
+比如 对外提供一个setText() 在 setText(){ 就可以 requestLayout() 只是重新去测量;}
+
+------
+#布局 onLayout(ViewGroup)
+
+1. 是 父控件 决定子View 的位置
+2. 尽可能将 onMeasure 的方法 移动到 onLayout 中，因为 在 view的整个绘制流程中，onMeasure 可能调用多次，但是
+   onLayout 就调用一次， 比如一些耗时之类的。
+
+3.触发还是 requestLayout();
+
+protected void onLayout( ){
+   final View child = getChildAt();
+
+   child.layout(left ,top , let + cWidth ,top + cHeight )
+}
+
+# 绘制 onDraw
+
+1.只是绘制 内容区域，不用考虑背景之类
+
+  使用Canvas 的API
+
+  Canvas..draw();
+
+2.invalidate(); 调用重绘
+
+3. save() ,restore() 去处理 这个的canvas 的状态
+
+
+自定义viewGroup 一般不会考虑 onDraw();
+
+
+#onTouchEvent
+
+onTouchEvent(MotionEvent ev)
+
+final int action = ev.getAction();
+
+switch (action)
+
+ACTION_DOWN
+
+ACTION_MOVE
+
+ACTION_UP
+
+ACTION_CANCEL //释放资源 重置变量
+
+//--- 多点触控
+ACTION_POINT_DOWN
+
+ACTION_POINT_UP
+
+在方法里可以
+getParent().requestDisallowInterceptTouchEvent(true);
+告诉父控件不要拦截 整个手势，从DOWN 到UP
+
+#onInterceptTouchEvent( ViewGroup )
+这个方法主要是ViewGroup的，事件转发的过程中，事件是由父控件告诉子控件进行处理的，在这个转发的过程中，
+父控件是有权利去拦截子控件的事件的
+返回 true 就代表把子控件的 事件给拦截掉了，交给viewGroup 自己去处理
+一般是比较关注于 MOVE，比如scrollView 的 滚动
+
+能拿到Y的值，down 的时候的值，跟move时候当前的值 ，进行一个差比。
+比如 isDragged 就是这样
+
+#后言
+
+View 也有
+onSaveInstanceState
+onRestoreInstanceState
+
+保存恢复状态
+
+ViewConfiguration:
+        ViewConfiguration vc = ViewConfiguration.get(context);
+        mTouchSlop = vc.getScaledTouchSlop();
+
+        防抖动的 一个值
+
+ScaleGestureDetector 缩放的一个手势之类的
+ViewDragHelper
