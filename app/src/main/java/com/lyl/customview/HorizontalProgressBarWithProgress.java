@@ -2,6 +2,7 @@ package com.lyl.customview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
@@ -102,6 +103,49 @@ public class HorizontalProgressBarWithProgress extends ProgressBar {
             result = Math.min(result,heightValue);
         }
         return result;
+    }
+
+    @Override
+    protected synchronized void onDraw(Canvas canvas) {
+        canvas.save();
+        canvas.translate(getPaddingLeft(),getHeight()/2);
+
+        boolean noNeedUnreach = false;
+        float radio = getProgress() *1.0f / getMax();
+        String text = getProgress() + "%";
+        float progressX = radio * mRealWidth;
+        int textWidth = (int) mPaint.measureText(text);
+
+        if(progressX + textWidth > mRealWidth){
+            progressX = mRealWidth -textWidth;
+            noNeedUnreach = true;
+        }
+
+        float endX =  progressX - mTextOffset/2;
+        if (endX >0){
+            mPaint.setColor(mReachColor);
+            mPaint.setStrokeWidth(mReachHeight);
+            canvas.drawLine(0,0,endX,0,mPaint);
+        }
+
+        //draw text;
+        mPaint.setColor(mTextColor);
+        int y = (int) (-(mPaint.descent() + mPaint.ascent()) /2);
+        canvas.drawText(text,progressX,y,mPaint);
+
+        //draw unreach
+
+        if(! noNeedUnreach){
+            float start = progressX + textWidth + mTextOffset/2;
+            mPaint.setColor(mUnReachColor);
+            mPaint.setStrokeWidth(mUnReachColor);
+            canvas.drawLine(start,0,mRealWidth,0,mPaint);
+        }
+
+
+        canvas.restore();
+
+
     }
 
     private int dp2px(int dpVal) {
