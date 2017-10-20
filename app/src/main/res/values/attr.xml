@@ -7,4 +7,28 @@
         <attr name="text"></attr>
         <attr name="text_size"></attr>
     </declare-styleable>-->
+
+    <attr name="progress_unreach_color" format="color"></attr>
+
+    <attr name="progress_unreach_height" format="dimension"></attr>
+
+    <attr name="progress_reach_color" format="color"></attr>
+    <attr name="progress_reach_height" format="dimension"></attr>
+    <attr name="progress_textColor" format="color"></attr>
+    <attr name="progress_textSize" format="dimension"></attr>
+    <attr name="progress_offset" format="dimension"></attr>
+
+    <declare-styleable name="HorizontalProgressBarWithProgress">
+        <attr name="progress_unreach_color"></attr>
+
+        <attr name="progress_unreach_height"></attr>
+
+        <attr name="progress_reach_color"></attr>
+        <attr name="progress_reach_height"></attr>
+        <attr name="progress_textColor"></attr>
+        <attr name="progress_textSize"></attr>
+        <attr name="progress_offset"></attr>
+    </declare-styleable>
+
+
 </resources>
