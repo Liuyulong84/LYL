@@ -30,5 +30,9 @@
         <attr name="progress_offset"></attr>
     </declare-styleable>
 
+    <declare-styleable name="CircleProgress">
+        <attr name="radius" format="dimension"></attr>
+    </declare-styleable>
+
 
 </resources>

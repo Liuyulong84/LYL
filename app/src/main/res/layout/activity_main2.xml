@@ -6,13 +6,42 @@
     android:layout_height="match_parent"
     tools:context="com.lyl.Main2Activity">
 
-    <com.lyl.customview.GraphicsView
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <com.lyl.customview.PathBezier
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.lyl.customview.HorizontalProgressBarWithProgress
+                android:id="@+id/lyl_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                app:progress_reach_color="@color/colorAccent"
+                app:progress_unreach_color="@color/colorPrimaryDark"
+                app:progress_offset="10dp"
+                app:progress_textColor="@color/colorPrimary"
+                app:progress_textSize="13sp"/>
+        </LinearLayout>
+
+        <com.lyl.customview.CircleProgress
+            android:id="@+id/lyl_progress_circle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:radius="40dp"
+            app:progress_reach_color="@color/colorAccent"
+            app:progress_unreach_color="@color/colorPrimaryDark"
+            app:progress_offset="10dp"
+            app:progress_textColor="@color/colorPrimary"
+            app:progress_textSize="13sp"/>
+
+    </LinearLayout>
+
+
 
 </android.support.constraint.ConstraintLayout>
