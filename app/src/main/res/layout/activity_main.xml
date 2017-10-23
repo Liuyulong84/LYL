@@ -22,6 +22,14 @@
         android:id="@+id/custom_view_learning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="自定义view 的踩坑"
+        android:text="progress??"
         android:textSize="18sp"/>
+
+    <Button
+        android:layout_below="@+id/custom_view_learning"
+        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="webview"
+        android:id="@+id/goWebview"/>
 </RelativeLayout>

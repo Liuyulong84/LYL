@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lyl.administrator.lyl">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,7 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.lyl.Main2Activity"></activity>
+        <activity android:name="com.lyl.Main2Activity" />
+        <activity android:name="com.lyl.net.Activity_net"></activity>
     </application>
 
 </manifest>

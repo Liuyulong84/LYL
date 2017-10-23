@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/first/first.iml" filepath="$PROJECT_DIR$/first/first.iml" />
       <module fileurl="file://$PROJECT_DIR$/gatheroperation/gatheroperation.iml" filepath="$PROJECT_DIR$/gatheroperation/gatheroperation.iml" />
       <module fileurl="file://$PROJECT_DIR$/leaktest/leaktest.iml" filepath="$PROJECT_DIR$/leaktest/leaktest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net/net.iml" filepath="$PROJECT_DIR$/net/net.iml" />
       <module fileurl="file://$PROJECT_DIR$/sort/sort.iml" filepath="$PROJECT_DIR$/sort/sort.iml" />
       <module fileurl="file://$PROJECT_DIR$/switchstatement/switchstatement.iml" filepath="$PROJECT_DIR$/switchstatement/switchstatement.iml" />
       <module fileurl="file://$PROJECT_DIR$/threadcoding/threadcoding.iml" filepath="$PROJECT_DIR$/threadcoding/threadcoding.iml" />

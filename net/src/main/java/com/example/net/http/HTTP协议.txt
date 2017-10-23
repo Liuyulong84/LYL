@@ -1,0 +1,71 @@
+#请求头信息
+RequestURL
+RequestMethod :GET
+
+Status Code :200
+
+#Request Header
+
+Accept:text/html.
+
+Connection:keep-alive
+
+CooKie
+
+Host:主机
+
+#ResponseHeader
+# GET/POST
+
+get把请求的数据放在url上，即HTTP协议头上，其格式为：
+以?分割URL和传输数据，参数之间以&相连。
+数据如果是英文字母/数字，原样发送，
+如果是空格，转换为+，
+如果是中文/其他字符，则直接把字符串用BASE64加密，及“%”加上“字符串的16进制ASCII码”。
+
+post把数据放在HTTP的包体内（request body）。
+
+get提交的数据最大是2k（原则上url长度无限制，那么get提交的数据也没有限制咯？限制实际上取决于浏览器，(大多数)浏览器通常都会限制url长度在2K个字节，即使(大多数)服务器最多处理64K大小的url。也没有卵用。）。
+post理论上没有限制。实际上IIS4中最大量为80KB.
+
+GET产生一个TCP数据包，浏览器会把http header和data一并发送出去，服务器响应200(返回数据);
+POST产生两个TCP数据包，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok(返回数据)。
+
+GET在浏览器回退时是无害的，POST会再次提交请求。
+
+GET请求只能进行url编码，而POST支持多种编码方式。
+
+那么，post那么好为什么还用get？get效率高！。
+
+#无连接
+#无状态
+
+# HTTPClient
+用get
+1. 创建 HttpGet 对象   HttpGet httpGet = new HttpGet(url);
+2. 创建HttpClient 对象; HttpClient client = new DefaultHttpClient();
+3. 创建 HttpResponse  response
+4. 发送请求 ： response  = client.execute(httpGet);
+5. 判断 response.getStatusLine().getStatusCode
+6. 取出 数据
+
+用 post
+
+于post不同的是发送数据
+HttpPost post= new HttpPost(url);
+发送请求之前 要
+post.setEntity();
+
+# 什么是 Json
+
+# XML
+
+#多线程下载
+通过
+count = conn.getContentLength();
+然后一个线程池 去弄几个线程去同时下载
+
+conn.setRequestProperty("Range", start - end);
+
+RandomAccessFile access;
+access.seek(start);

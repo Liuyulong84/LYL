@@ -1,0 +1,68 @@
+# 出现发展
+
+Http 背景
+
+1.1
+
+请求头，请求体，响应头，响应体
+
+请求头：
+本次请求的客户端
+本次请求的 cookie
+本次希望返回数据类型
+
+请求体：
+指定本次 请求所使用的方法
+携带本次请求的参数
+
+响应头：
+
+服务器标识
+状态码
+内容编码
+cookie 返回给客户端的cookie
+
+响应体：
+
+主要就是本次请求所返回的数据
+
+#工作流程
+
+首先客户机与服务器 建立连接
+
+socket 建立连接 客户端 发送请求给 服务器
+
+服务器收到请求后，给与响应的信息
+
+客户端接受服务器所返回的信息，断开连接
+
+# Http 优势
+快，无连接，无状态、、后来成了劣势
+
+#OKhttp
+
+支持了 http2.0，不管你的服务器支持不支持，他会自动处理
+
+缓存响应数据 减少重复的网络请求
+看可以从很多常见的连接问题中自动恢复
+使用简单
+
+##核心框架
+
+Request.Builder --> Dispatcher --->cache --> ConnectionPoll 连接池
+    --> 选择相应的路径 平台 --->Server 端 拿数据
+
+final Request request = new Request.Builder().url("www.baidu.com").build();
+OKHttpClient client = new OkHttpClient();
+Call call = client.newCall(request);
+call.enqueue( new Callback(){});
+
+----
+OkHttpClient client = new OKHttpClient();
+FromBody.Builder fromBodyBuild = new FromBody.Builder();
+fromBodyBuild.add("","");
+fromBodyBuild.add("","");
+Request request = new Request.Builder().url("111111").post(fromBody.build()).build();
+
+Call call = client.newCall(request);
+call.enqueue();

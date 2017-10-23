@@ -1,0 +1,122 @@
+# Volley 的意思
+
+齐射、并发
+
+#Volley 的特点
+
+通信  更快，更简单
+
+Get Post 网络请求图像的高效 异步请求处理
+
+根据优先级 排序
+
+网络请求的缓存
+
+多级别 取消请求
+
+和Activity 生命周期的联动
+
+不适合  上传下载
+
+#功能上：
+
+高效的Get/Post 方式的数据请求 交互，自己写的话会需要考虑很多问题
+
+网络图片加载和缓存
+
+# 使用
+
+建立请求队列
+
+方便管理 取消
+
+volley 于Activity 生命周期的联动
+
+设置标签，去 取消
+
+##Get数据请求，
+
+1.首先在Application 里全局建立一个 RequestQueue;
+
+StringRequest request = new StringRequest(Method.GET,url,
+                                          new Listener({...}),
+                                          new ErrorListener({...}));
+
+JsonObjectRequest request = new JsonObjectRequest(Method.GET) .....
+JsonArray
+
+##Post 请求
+String url = "";
+
+StringRequest request = new StringRequest(Method.POST,url,
+                                          new Listener({...}),
+                                          new ErrorListener({...}));
+
+因为是post 请求所以不能把参数 放在url上
+
+StringRequest request = new StringRequest(Method.POST,url,
+                                          new Listener({...}),
+                                          new ErrorListener({...})
+                                          {
+                                             @Override
+                                             protected Map<String,String> getParams(){
+                                                  Map<String,String> params;
+                                                  return params;
+
+                                              }
+                                          });
+
+得传在 实体里。
+
+request.setTag("abcPPost");
+Myapplication.getHttpQueue.add(request);
+
+Myapplication.getHttpQueue.start();
+
+#与Activity关联
+
+在onStop(){
+   Myapplication.getHttpQueues().cancelAll("abcGet");//那个我们设置的 TAG;
+}
+
+#二次封装
+
+#图片缓存
+
+##ImageRequest request = new ImageRequest(url,new Listener(
+                                                  {
+                                                   @Override
+                                                    response(BitMap ) { 设置在imageView上}
+                                                    }),
+                                             maxWidth,maxHeight,Config,
+                                             new ErrorListener({...}));
+
+## ImageLoader
+
+BitMapCache implements ImageCache{
+    public LruCache<String,Bitmap> cache;
+    public int Max = 10 * 1024 * 1024;
+
+    publicBitmap() {
+       cache = new LruCache <String,Bitmap>(Max){
+             @Override
+             protected int sizeOf(String key , BitMap value){
+                return value.getRowBytes() * value.getHeight();
+             }
+       }
+    }
+}
+
+ImageLoader loader = new ImageLoader (Myapplication.getRequestQueue(),
+
+                                      new BitmapCache());
+
+ImageListener listener = ImageLoader.getImageListener(iv_img, R.drawable.default,R.drawable.default)
+
+loader.get(url,listener);
+
+# Volley 提供 的NetworkImageView
+
+NetWorkImageView netImageView;
+
+netImageView.setImageUrl(url,loader);

@@ -1,1 +1,1 @@
-include ':app', ':first', ':switchstatement', ':switchstatement', ':gatheroperation', ':sort', ':annonation', ':algorithm', ':designmode', ':leaktest', ':threadcoding'
+include ':app', ':first', ':switchstatement', ':switchstatement', ':gatheroperation', ':sort', ':annonation', ':algorithm', ':designmode', ':leaktest', ':threadcoding', ':net'

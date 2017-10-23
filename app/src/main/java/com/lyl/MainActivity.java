@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.lyl.administrator.lyl.R;
+import com.lyl.net.Activity_net;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -76,7 +77,17 @@ public class MainActivity extends AppCompatActivity {
         }).start();
 
         initCustomViewLearning();
+        initHttpStudy();
 
+    }
+
+    private void initHttpStudy() {
+        findViewById(R.id.goWebview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Activity_net.class));
+            }
+        });
     }
 
     private void initCustomViewLearning() {
