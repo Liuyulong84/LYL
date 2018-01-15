@@ -10,6 +10,9 @@ import android.widget.TextView;
 import com.lyl.administrator.lyl.R;
 import com.lyl.net.Activity_net;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -79,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
         initCustomViewLearning();
         initHttpStudy();
 
+        try {
+            testJson();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void initHttpStudy() {
@@ -99,5 +108,42 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+
+    private void testJson() throws JSONException {
+        // { min_version : "123" }
+        // {"min_version" : 123 }
+        // {"min_version" : "123"}
+        String re = "{ min_version : 123 }";
+        try {
+            ZheUpdateEntity updateEntity = new ZheUpdateEntity(new JSONObject(re));
+            System.out.print(updateEntity.remoteVersionCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static class ZheUpdateEntity {
+        public String description;
+        public String downloadUrl;
+        public String appName;
+        public int remoteVersionCode;
+        public int remoteMinVersionCode;
+        public boolean mustUpdate;
+        public String minSystemVersion;
+
+        public ZheUpdateEntity() {
+        }
+
+        public ZheUpdateEntity(JSONObject object) throws Exception {
+            appName = "";
+            downloadUrl = object.optString("url");
+            remoteVersionCode = object.optInt("version");
+            remoteMinVersionCode = object.optInt("min_version");
+            description = object.optString("description");
+            mustUpdate = object.optBoolean("must-update");
+            minSystemVersion = object.optString("min_system_version");
+        }
+    }
 
 }

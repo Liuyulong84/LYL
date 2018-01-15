@@ -43,14 +43,33 @@ public class FindMaxKNum {
         return result;
     }
 
+    private static int countResult(int[] arr){
+        int before = arr[0] ;
+        int beforeCount = 0, nextCount = 0;
+        for (int item: arr){
+            if ( item == before){
+                nextCount ++ ;
+            }else {
+                beforeCount = beforeCount > nextCount ? beforeCount :nextCount;
+                nextCount = 0 ;
+                before = item;
+                nextCount ++;
+            }
+        }
+        return Math.max(beforeCount,nextCount);
+    }
+
+
     public static void main(String[] args) {
         int[] arr = { 6, 9, 1, 3, 1, 2, 2, 5, 6, 1, 3, 5, 9, 7, 2, 5, 6, 1, 9 };
 
         int [] gt = {1,5,3,4,2};
         int gtk = 2 ;
 
-        printArray(topk(arr,3));
-        printArray(topk(gt,gtk));
+        //printArray(topk(arr,3));
+        //printArray(topk(gt,gtk));
+        arr = new int[]{4, 4, 4, 4, 4, 6, 7,7,7,7,7,7,7,7,7,7,7,7,7,7, 8, 9, 3, 3};
+        System.out.println(countResult(arr));
 
     }
 }
