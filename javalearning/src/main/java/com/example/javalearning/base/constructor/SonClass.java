@@ -5,6 +5,8 @@ package com.example.javalearning.base.constructor;
  *
  * 构造方法调用问题
  * 子类构造方法会首先默认调用父类的无参构造方法，无论是否显式写了super();
+ *
+ * 父类如果没有写无参的构造方法, 子类的构造还是需要super。
  */
 public class SonClass extends FatherClass {
 
