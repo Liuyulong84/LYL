@@ -30,7 +30,7 @@ public class ClassLoaderTest {
 
         Object obj = myLoader.loadClass("com.brianway.learning.java.jvm.classloading.ClassLoaderTest").newInstance();
         System.out.println(obj.getClass());
-        System.out.println(obj instanceof com.brianway.learning.java.jvm.classloading.ClassLoaderTest);
+        System.out.println(obj instanceof com.example.javalearning.jvm.classloading.ClassLoaderTest);
     }
 }
 

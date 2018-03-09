@@ -24,13 +24,12 @@ package com.example.javalearning.multithread.synchronize.example13;
  * T2与另外两个没关系，因为其锁对象是in2
  */
 
-import com.brianway.learning.java.multithread.synchronize.example13.OutClass2.InnerClass1;
-import com.brianway.learning.java.multithread.synchronize.example13.OutClass2.InnerClass2;
+
 
 public class Run13_inner02 {
     public static void main(String[] args) {
-        final InnerClass1 in1 = new InnerClass1();
-        final InnerClass2 in2 = new InnerClass2();
+        final OutClass2.InnerClass1 in1 = new OutClass2.InnerClass1();
+        final OutClass2.InnerClass2 in2 = new OutClass2.InnerClass2();
         Thread t1 = new Thread(new Runnable() {
             public void run() {
                 in1.method1(in2);

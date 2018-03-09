@@ -7,11 +7,11 @@ package com.example.javalearning.multithread.synchronize.example13;
  * 内置类和同步测试1
  */
 
-import com.brianway.learning.java.multithread.synchronize.example13.OutClass.Inner;
+
 
 public class Run13_inner01 {
     public static void main(String[] args) {
-        final Inner inner = new Inner();
+        final OutClass.Inner inner = new OutClass.Inner();
         Thread t1 = new Thread(new Runnable() {
             public void run() {
                 inner.method1();
