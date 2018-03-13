@@ -6,6 +6,8 @@ package com.example.javalearning.base.datatype;
  * TODO 有些细节待理解
  *
  * 主要是考装箱和拆箱
+ *
+ * Integer .IntegerCache 
  */
 public class Boxing {
     public static void main(String[] args) {

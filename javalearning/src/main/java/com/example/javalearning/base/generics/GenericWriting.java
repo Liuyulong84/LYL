@@ -19,8 +19,7 @@ public class GenericWriting {
     }
 
     //
-    static <T> void
-    writeWithWildcard(List<? super T> list, T item) {
+    static <T> void writeWithWildcard(List<? super T> list, T item) {
         list.add(item);
     }
 

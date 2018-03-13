@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GenericReading {
+    //泛型方法 // 泛型类
     static <T> T readExact(List<T> list) {
         return list.get(0);
     }

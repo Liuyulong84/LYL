@@ -4,6 +4,7 @@ package com.example;
  * Created by $lyl on 2017/5/19.
  */
 
+//找出第三大的数字，就是 pivotPos == 3 的时候
 public class QuickSort {
     //一次划分
     public static int partition(int[] arr, int left, int right) {

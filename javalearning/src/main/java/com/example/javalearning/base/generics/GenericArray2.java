@@ -34,8 +34,11 @@ public class GenericArray2<T> {
         } catch (Exception e) {
             System.out.println(e);
         }
+        Integer a = gai.get(3);
+        System.out.println(a);
     }
 } /* Output: (Sample)
 0 1 2 3 4 5 6 7 8 9
-java.lang.ClassCastException: [Ljava.lang.Object; cannot be cast to [Ljava.lang.Integer;
+java.lang.ClassCastException: [Ljava.lang.Object; cannot be cast to [Ljava.lang.Integer; 因为new 的时候还是new 的object
+3
 *///:~
