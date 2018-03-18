@@ -23,6 +23,7 @@ public class MyClass {
                     try {
                         for (int x = id; ; x = (x + N - 1) % N) {
                             barrier.await();
+                            System.out.println(Thread.currentThread().getName()+ " write" + (id +1) + "to " + x );
                             buffers[x].append(id + 1);
                         }
                     } catch (Exception ex) {
@@ -38,9 +39,9 @@ public class MyClass {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        for (StringBuilder buffer : buffers) {
+        /*for (StringBuilder buffer : buffers) {
             System.out.println(buffer);
-        }
+        }*/
         System.exit(0);
     }
 }

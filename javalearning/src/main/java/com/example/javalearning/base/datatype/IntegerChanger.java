@@ -22,7 +22,9 @@ public class IntegerChanger {
         System.out.println("after swap a = " + a + ", b = " + b);
 
         Integer c = 1;
+        Integer d = 2;
         System.out.println("(警告:Integer缓存被改了,代码里:Integer c = 1;) 实际c=" + c);
+        System.out.println("(警告:Integer缓存被改了,代码里:Integer d = 2;) 实际d=" + d);
     }
 
     public static void swap(Integer i1, Integer i2) {

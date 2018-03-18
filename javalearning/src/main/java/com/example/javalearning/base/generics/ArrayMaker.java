@@ -22,6 +22,7 @@ public class ArrayMaker<T> {
         ArrayMaker<String> stringMaker =
                 new ArrayMaker<String>(String.class);
         String[] stringArray = stringMaker.create(9);
+        stringArray[3] =  "s";
         System.out.println(Arrays.toString(stringArray));
     }
 }
