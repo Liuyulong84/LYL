@@ -1,6 +1,6 @@
 package com.example.javatutorial.threadtutorial.char01;
 
-import javafx.scene.SubScene;
+
 
 /**
  * Created by shiqifeng on 2016/12/28.
