@@ -24,11 +24,11 @@ public class Holder<T> {
     }
 
     public static void main(String[] args) {
-        Holder<Apple> Apple = new Holder<Apple>(new Apple());
-        Apple d = Apple.get();
-        Apple.set(d);
+        Holder<Apple> appleHolder = new Holder<Apple>(new Apple());
+        Apple d = appleHolder.get();
+        appleHolder.set(d);
         // Holder<Fruit> Fruit = Apple; // Cannot upcast
-        Holder<? extends Fruit> fruit = Apple; // OK
+        Holder<? extends Fruit> fruit = appleHolder; // OK
         Fruit p = fruit.get();
         d = (Apple) fruit.get(); // Returns 'Object'
         try {

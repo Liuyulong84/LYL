@@ -6,6 +6,8 @@ public class InstantiateGenericType {
                 new ClassAsFactory<Employee>(Employee.class);
         System.out.println("ClassAsFactory<Employee> succeeded");
         try {
+            //This compiles, but fails with ClassAsFactory<Integer> because Integer has no default constructor. Because the
+             //   error is not caught at compile time, this approach is frowned upon by the Sun folks. They suggest instead
             ClassAsFactory<Integer> fi =
                     new ClassAsFactory<Integer>(Integer.class);
         } catch (Exception e) {
@@ -16,6 +18,8 @@ public class InstantiateGenericType {
 
 class ClassAsFactory<T> {
     T x;
+
+    //newInstance???
 
     public ClassAsFactory(Class<T> kind) {
         try {
