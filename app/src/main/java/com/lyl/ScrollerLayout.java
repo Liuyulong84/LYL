@@ -1,6 +1,7 @@
 package com.lyl;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.v4.view.ViewConfigurationCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
