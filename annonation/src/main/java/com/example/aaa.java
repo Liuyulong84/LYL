@@ -15,4 +15,6 @@ public class aaa extends AbstractProcessor{
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
         return false;
     }
+    //processor 该怎么写
+    //？？ 学习processor
 }
