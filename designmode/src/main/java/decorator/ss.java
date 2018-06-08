@@ -25,4 +25,5 @@ public class ss {
 
         concreteDecorator.operation();
     }
+    //Decorator 装饰模式
 }
